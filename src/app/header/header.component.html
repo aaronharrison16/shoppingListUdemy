@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a routerLink="/recipes" class="navbar-brand">Recipe Book</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+            <ul class="mr-auto navbar-nav">
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="/recipes">Recipes</a></li>
+                <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="/shopping-list">Shopping List</a></li>
+            </ul>
+            <ul class="ml-auto navbar-nav">
+                <li ngbDropdown class="nav-item dropdown">
+                    <a ngbDropdownToggle style="cursor:pointer;" class="nav-link dropdown-toggle" id="navbarDropdown" role="button">
+                        Manage
+                    </a>
+                    <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <li><a style="cursor:pointer;" class="dropdown-item" >Save Data</a></li>
+                        <li><a style="cursor:pointer;" class="dropdown-item" >Fetch Data</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
