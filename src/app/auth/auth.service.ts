@@ -34,6 +34,7 @@ export class AuthService {
       switch (errorRes.error.error.message) {
         case 'EMAIL_EXISTS':
           errorMessage = "This email is already registered";
+        
       }
       return throwError(errorMessage);
     }));
@@ -47,6 +48,20 @@ export class AuthService {
         password: password,
         returnSecureToken: true
       }
-    )
+    ).pipe(catchError(errorRes => {
+      let errorMessage = "An unknown error occurred";
+      if (!errorRes.error || !errorRes.error.error) {
+        return throwError(errorMessage);
+      }
+      switch (errorRes.error.error.message) {
+        case 'INVALID_PASSWORD':
+          errorMessage = 'Invalid email or password';
+          break
+        case "EMAIL_NOT_FOUND":
+          errorMessage = "Invalid email or password";
+         
+      }
+      return throwError(errorMessage);
+    })); 
   }
 }
