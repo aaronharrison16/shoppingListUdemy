@@ -1,6 +1,12 @@
 <div class="row justify-content-center">
   <div class="col-md-6 ">
-    <form #authForm="ngForm" (ngSubmit)="onAuthSubmit(authForm)">
+    <div class="alert alert-danger" *ngIf='error'>
+      <h5>{{ error }}</h5>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center;">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onAuthSubmit(authForm)" *ngIf='!isLoading'>
       <div class="form-group">
         <label for="email">Email</label>
         <input 
