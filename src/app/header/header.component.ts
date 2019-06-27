@@ -3,7 +3,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
     templateUrl: 'header.component.html',
-    selector: 'app-header'
+    selector: 'app-header',
 })
 
 export class HeaderComponent {
